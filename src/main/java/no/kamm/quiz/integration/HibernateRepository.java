@@ -3,42 +3,51 @@ package no.kamm.quiz.integration;
 import java.io.Serializable;
 import java.util.List;
 
+import org.hibernate.SessionFactory;
 import org.hibernate.criterion.DetachedCriteria;
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate3.HibernateTemplate;
 
-public class HibernateRepository extends HibernateDaoSupport implements Repository {
+public class HibernateRepository implements Repository {
+
+	HibernateTemplate hibernateTemplate;
+
+	@Autowired
+	public HibernateRepository(SessionFactory sessionFactory) {
+		hibernateTemplate = new HibernateTemplate(sessionFactory);
+	}
 
 	@Override
 	public <T> T retrieve(Class<T> clazz, Serializable key) {
-		return getHibernateTemplate().get(clazz, key);
+		return hibernateTemplate.get(clazz, key);
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public <T> List<T> findAll(Class<T> clazz) {
-		return getHibernateTemplate().findByCriteria(DetachedCriteria.forClass(clazz));
+		return hibernateTemplate.findByCriteria(DetachedCriteria.forClass(clazz));
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public <T> List<T> find(Specification<T> specification) {
-		return getHibernateTemplate().findByCriteria(specification.getCriteria());
+		return hibernateTemplate.findByCriteria(specification.getCriteria());
 	}
 
 	@Override
 	public <T> int deleteAll(Class<T> clazz) {
-		return getHibernateTemplate().getSessionFactory().openSession().createQuery("DELETE FROM " + clazz)
-				.executeUpdate();
+		return hibernateTemplate.getSessionFactory().openSession()
+				.createQuery("DELETE FROM " + clazz.getName()).executeUpdate();
 	}
 
 	@Override
 	public void delete(Serializable entity) {
-		getHibernateTemplate().delete(entity);
+		hibernateTemplate.delete(entity);
 	}
 
 	@Override
 	public void save(Serializable entity) {
-		getHibernateTemplate().save(entity);
+		hibernateTemplate.saveOrUpdate(entity);
 	}
 
 }
