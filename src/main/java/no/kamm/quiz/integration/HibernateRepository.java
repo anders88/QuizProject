@@ -7,7 +7,9 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.stereotype.Component;
 
+@Component
 public class HibernateRepository implements Repository {
 
 	HibernateTemplate hibernateTemplate;
