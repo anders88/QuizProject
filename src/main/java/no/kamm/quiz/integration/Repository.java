@@ -1,20 +1,33 @@
 package no.kamm.quiz.integration;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.List;
 
 public interface Repository {
 
-	<T> T retrieve(Class<T> clazz, Serializable key);
+	Serializable save(Object entity);
 
-	<T> List<T> findAll(Class<T> clazz);
+	void saveAll(Object... entities);
+
+	<T> void saveAll(Collection<T> entities);
+
+	<T> T retrieve(Class<T> entityClass, Serializable key);
+
+	<T> T retrieve(Specification<T> specification);
 
 	<T> List<T> find(Specification<T> specification);
 
-	<T> int deleteAll(Class<T> clazz);
+	<T> List<T> findAll(Class<T> entityClass);
 
-	void delete(Serializable entity);
+	long rowCount(Specification<?> specification);
 
-	void save(Serializable entity);
+	void delete(Class<?> entityClass, Serializable key);
+
+	void deleteAll(Class<?> entityType);
+
+	void delete(Object entity);
+
+	void delete(Specification<?> specification);
 
 }
