@@ -19,9 +19,6 @@
 		<property name="useCodeAsDefaultMessage" value="true" />
 	</bean>
 
-	<context:property-placeholder location="classpath:quiz.properties" />
-
-
 	<context:component-scan base-package="no.kamm" />
 
 	<mvc:annotation-driven />
@@ -37,22 +34,6 @@
 		<property name="contentType" value="text/html; charset=utf-8" />
 	</bean>
 
-	<bean id="sessionFactory"
-		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean"
-		p:dataSource-ref="dataSource" p:configLocation="classpath:hibernate.cfg.xml"
-		p:packagesToScan="no.kamm" />
-
-	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
-		destroy-method="close" p:driverClass="${database.driverClassName}"
-		p:jdbcUrl="${database.url}" p:user="${database.username}" p:password="${database.password}"
-		p:acquireIncrement="5" p:idleConnectionTestPeriod="60" p:maxPoolSize="100"
-		p:maxStatements="50" p:minPoolSize="10" />
-
-	<bean id="transactionManager"
-		class="org.springframework.orm.hibernate3.HibernateTransactionManager"
-		p:sessionFactory-ref="sessionFactory" />
-
-	<!-- -->
 </beans>
 
 
