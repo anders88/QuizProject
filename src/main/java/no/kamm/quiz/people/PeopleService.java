@@ -1,5 +1,7 @@
 package no.kamm.quiz.people;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import no.kamm.quiz.integration.Repository;
@@ -25,6 +27,14 @@ public class PeopleService {
 
 	public long getPeopleCount() {
 		return repository.rowCount(new PersonSpecification());
+	}
+
+	public List<Person> findAll() {
+		return repository.findAll(Person.class);
+	}
+
+	public void save(Person person) {
+		repository.save(person);
 	}
 
 }

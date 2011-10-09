@@ -1,0 +1,236 @@
+b.green {
+	color: green;
+}
+
+b.red {
+	color: red;
+}
+
+.fieldWithErrors {
+	padding: 2px;
+	background-color: red;
+	display: table;
+}
+
+#errorExplanation {
+	width: 300px;
+	border: 2px solid red;
+	padding: 7px;
+	padding-bottom: 12px;
+	margin-bottom: 20px;
+	background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+	text-align: left;
+	font-weight: bold;
+	padding: 5px 5px 5px 15px;
+	font-size: 12px;
+	margin: -7px;
+	background-color: #c00;
+	color: #fff;
+}
+
+#errorExplanation p {
+	color: #333;
+	margin-bottom: 0;
+	padding: 5px;
+}
+
+#Explanation ul li {
+	font-size: 12px;
+	list-style: square;
+}
+
+div.paginator {
+	text-align: right
+}
+
+.error {
+	font-size: 11px;
+	color: #FF0000;
+}
+
+/* --------------------------------------------------
+CSS Document For Leaves v1.0 - Anthonyy @ OSWD.org
+-------------------------------------------------- */ /* CONTAINER */
+#container {
+	width: 800px;
+	margin: 0 auto;
+	font-family: Lucida Grande, Tahoma, Arial, Helvetica, sans-serif;
+	/* Lucida Grande for the Macs, Tahoma for the PCs */
+	font-size: 11px;
+	line-height: 1.6em;
+	color: #666;
+	background-color: #FFF;
+}
+
+/* GENERAL MOJO AND MULA */
+h1 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	font-size: 32px;
+	/* color: #CC6633; */
+	color: #5A7896;
+	margin-bottom: 30px;
+	background-color: #FFF;
+}
+
+h2 {
+	color: #666666;
+	font-size: 17px;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #FFF;
+}
+
+legend {
+	color: #5A7896;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+label {
+	font-weight: bold;
+}
+
+a { /* color:#CC6714; */
+	color: #5A7896;
+	text-decoration: none;
+}
+
+a:hover { /* color:#CC6714; */
+	color: #5A7896;
+	/* background-color: #F5F5F5; */
+}
+
+form {
+	float: right;
+	margin-top: -25px;
+	font-size: 9px;
+}
+
+input {
+	background-color: #FFF;
+	color: #999999;
+	border: 1px solid #CCC;
+	font-size: 11px;
+	padding: 3px;
+}
+
+.button {
+	padding: 2px;
+}
+
+/* HEADER ELEMENTS */
+#header {
+	border-bottom: 4px solid #948979;
+	padding-top: 10px;
+	clear: both;
+	margin-bottom: 10px;
+}
+
+/* the slogan */
+#header p.slogan {
+	margin-top: -20px;
+	margin-left: 30px;
+	color: #999999;
+}
+
+#header p.userinfo {
+	float: right;
+	margin-top: -30px;
+	font-size: 11px;
+	margin-bottom: 5px;
+}
+
+/* NAVIGATION ELEMENTS */
+#navigation ul {
+	margin-left: 0;
+	padding-left: 0;
+	list-style-type: none;
+	float: left;
+	width: 140px;
+}
+
+#navigation a {
+	display: block;
+	padding: 5px;
+	width: 140px;
+	border-bottom: 1px solid #CCC;
+}
+
+#navigation a:link,#navlist a:visited { /* color:#CC6714; */
+	color: #5A7896;
+	text-decoration: none;
+}
+
+#navigation a:hover {
+	background: #FFFFFF url('../images/arrow.gif') no-repeat 96% 50%;
+	/* background: #F5F5F5 url('http://dna.uio.no/sigven/swimweb/img/arrow.gif') no-repeat 96% 50%; */
+	/*background: #F5F5F5 url('../images/arrow.gif') no-repeat 96% 50%;*/
+	/* color:#CC6714; */
+	color: #5A7896;
+	/* background-color:#F5F5F5 */
+}
+
+/* THE SMALL BOX BELOW NAV */
+#navigation p {
+	margin-top: 40px;
+	padding: 5px;
+	border-bottom: 1px dotted #CCC;
+	border-top: 1px dotted #CCC;
+}
+
+/* CONTENT ELEMENTS */
+#content {
+	width: 612px;
+	margin-left: 180px;
+	padding: 0px;
+	margin-top: 20px;
+}
+
+#content p {
+	padding-bottom: 10px;
+	border-bottom: 1px solid #DDDDDD;
+	/* A faint grey line below the text */
+	top: auto;
+}
+
+/* SIDEBAR ELEMENTS */ /*
+        #sidebar {
+            float: right;
+            width: 175px;
+        }
+        
+        #sidebar p {
+            padding-bottom: 10px;
+            border-bottom: 1px solid #DDDDDD;
+        }
+
+*/ /* FOOTER ELEMENTS */
+#footer {
+	margin-top: 20px;
+	clear: both;
+	background-color: #575352;
+	padding: 0px 5px 0px 5px;
+}
+
+#footer p { #
+	color: #89817f;
+	color: #ffffff;
+	padding: 5px;
+	text-align: center;
+}
+
+#footer p a {
+	color: #89817f;
+	border-bottom: 1px dotted #89817f;
+}
+
+#footer p a:hover {
+	color: #FFFFFF;
+	background-color: #575352;
+}
+/* And they lived happily ever after. The End. */

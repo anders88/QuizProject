@@ -35,6 +35,10 @@ public class Person implements Serializable {
 		return name;
 	}
 
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
