@@ -19,7 +19,7 @@ public class PeopleService {
 	public Person getPerson() {
 		repository.save(new Person().withName("Knut"));
 		Integer id = (Integer) repository.save(new Person().withName("Per"));
-		repository.save(new Person().withName("Pål"));
+		repository.save(new Person().withName("Paul"));
 		repository.save(new Person().withName("Espen"));
 
 		return repository.retrieve(new PersonSpecification().withId(id));
