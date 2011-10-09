@@ -37,4 +37,12 @@ public class PeopleService {
 		repository.save(person);
 	}
 
+	public Person find(Integer id) {
+		return repository.retrieve(Person.class, id);
+	}
+
+	public void deleteById(Integer id) {
+		repository.delete(Person.class, id);
+	}
+
 }

@@ -15,19 +15,19 @@
 	<c:forEach items="${people}" var="person" varStatus="index">
 		<tr>
 			<td><c:out value="${person.name}" /></td>
-			<td><spring:message code="application.show.link" /></td>
-			<td><spring:message code="application.edit.link" /></td>
+			<td><a href="show?id=${person.id}"> <spring:message
+						code="application.show.link" /></a></td>
+			<td><a href="update?id=${person.id}"><spring:message
+						code="application.edit.link" /></a></td>
+			<td><a href="delete?id=${person.id}"> <spring:message
+						code="application.delete.link" />
+			</a></td>
 		</tr>
 	</c:forEach>
 </table>
 <p></p>
 
-<a href="create"> <spring:message code="application.new.link" />
-</a>
-&nbsp;|&nbsp;
-<a href="search_person"> <spring:message
-		code="application.search.link" />
-</a>
+<a href="create"><spring:message code="application.new.link" /></a>
 
 <jsp:include page="footer.jsp" />
 
