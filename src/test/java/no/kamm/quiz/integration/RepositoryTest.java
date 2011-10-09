@@ -42,8 +42,8 @@ public class RepositoryTest {
 
 	@Test
 	public void find_with_empty_specification() throws Exception {
-		Person person1 = new Person().withName("Per");
-		Person person2 = new Person().withName("Pål");
+		Person person1 = new Person().withName("Peter");
+		Person person2 = new Person().withName("Paul");
 
 		repository.saveAll(person1, person2);
 
@@ -52,7 +52,7 @@ public class RepositoryTest {
 
 	@Test
 	public void should_save_a_collection() throws Exception {
-		List<Person> people = Arrays.asList(new Person().withName("Per"), new Person().withName("Pål"));
+		List<Person> people = Arrays.asList(new Person().withName("Peter"), new Person().withName("Paul"));
 
 		repository.saveAll(people);
 
@@ -61,18 +61,18 @@ public class RepositoryTest {
 
 	@Test
 	public void find_with_parameterized_specification() throws Exception {
-		Person person1 = new Person().withName("Per");
-		Person person2 = new Person().withName("Pål");
+		Person person1 = new Person().withName("Peter");
+		Person person2 = new Person().withName("Paul");
 
 		repository.saveAll(person1, person2);
 
-		assertThat(repository.find(new PersonSpecification().withName("Per"))).containsExactly(person1);
+		assertThat(repository.find(new PersonSpecification().withName("Peter"))).containsExactly(person1);
 	}
 
 	@Test
-	public void find_all() throws Exception {
-		Person person1 = new Person().withName("Per");
-		Person person2 = new Person().withName("Pål");
+	public void should_find_all() throws Exception {
+		Person person1 = new Person().withName("Peter");
+		Person person2 = new Person().withName("Paul");
 
 		repository.saveAll(person1, person2);
 
@@ -80,9 +80,9 @@ public class RepositoryTest {
 	}
 
 	@Test
-	public void ska_slette_alle() throws Exception {
-		Person person1 = new Person().withName("Per");
-		Person person2 = new Person().withName("Pål");
+	public void should_delete_all() throws Exception {
+		Person person1 = new Person().withName("Peter");
+		Person person2 = new Person().withName("Paul");
 
 		repository.saveAll(person1, person2);
 
@@ -92,9 +92,9 @@ public class RepositoryTest {
 	}
 
 	@Test
-	public void skal_slette_en_person() throws Exception {
-		Person person1 = new Person().withName("Per");
-		Person person2 = new Person().withName("Pål");
+	public void should_delete_a_person() throws Exception {
+		Person person1 = new Person().withName("Peter");
+		Person person2 = new Person().withName("Paul");
 
 		repository.saveAll(person1, person2);
 
@@ -104,9 +104,9 @@ public class RepositoryTest {
 	}
 
 	@Test
-	public void skal_slette_en_person_med_id() throws Exception {
-		Person person1 = new Person().withName("Per");
-		Person person2 = new Person().withName("Pål");
+	public void should_deltete_a_person_with_id() throws Exception {
+		Person person1 = new Person().withName("Peter");
+		Person person2 = new Person().withName("Paul");
 
 		Serializable id = repository.save(person1);
 		repository.save(person2);
@@ -117,26 +117,26 @@ public class RepositoryTest {
 	}
 
 	@Test
-	public void skal_finne_antall_lagrede_personer() throws Exception {
-		Person person1 = new Person().withName("Per");
-		Person person2 = new Person().withName("Pål");
+	public void should_find_saved_people() throws Exception {
+		Person person1 = new Person().withName("Peter");
+		Person person2 = new Person().withName("Paul");
 		Person person3 = new Person().withName("Espen");
 
 		repository.saveAll(person1, person2, person3);
 
 		assertThat(repository.rowCount(new PersonSpecification())).isEqualTo(3);
-		assertThat(repository.rowCount(new PersonSpecification().withName("Pål"))).isEqualTo(1);
+		assertThat(repository.rowCount(new PersonSpecification().withName("Paul"))).isEqualTo(1);
 	}
 
 	@Test
 	public void should_delete_all_that_matches_specification() throws Exception {
-		Person person1 = new Person().withName("Per");
-		Person person2 = new Person().withName("Pål");
+		Person person1 = new Person().withName("Peter");
+		Person person2 = new Person().withName("Paul");
 		Person person3 = new Person().withName("Espen");
 
 		repository.saveAll(person1, person2, person3);
 
-		repository.delete(new PersonSpecification().withName("Pål"));
+		repository.delete(new PersonSpecification().withName("Paul"));
 
 		assertThat(repository.findAll(Person.class)).containsExactly(person1, person3);
 	}
