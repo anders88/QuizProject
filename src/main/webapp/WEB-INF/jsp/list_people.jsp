@@ -9,7 +9,7 @@
 </h2>
 
 <c:if test="${empty people}">
-	<spring:message code="applikation.empty.list" />
+	<spring:message code="application.empty.list" />
 </c:if>
 <table>
 	<c:forEach items="${people}" var="person" varStatus="index">

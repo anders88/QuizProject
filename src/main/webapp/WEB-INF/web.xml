@@ -5,7 +5,10 @@
 
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:quiz-context.xml</param-value>
+		<param-value>
+			classpath:spring-security.xml
+			classpath:quiz-context.xml
+		</param-value>
 	</context-param>
 
 	<listener>
@@ -21,6 +24,17 @@
 		<servlet-name>quiz</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy
+		</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 
 	<filter>
 		<filter-name>characterEncodingFilter</filter-name>

@@ -18,7 +18,7 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/servlet-context.xml" })
+@ContextConfiguration(locations = { "file:src/main/resources/quiz-context.xml" })
 @TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = true)
 @Transactional
 public class RepositoryTest {
@@ -30,14 +30,14 @@ public class RepositoryTest {
 	public void retrieve_with_key() throws Exception {
 		String name = "Nils";
 		Serializable id = repository.save(new Person().withName(name));
-		assertThat(repository.retrieve(Person.class, id).getName()).isEqualTo(name);
+		assertThat(repository.retrieve(Person.class, id).getUsername()).isEqualTo(name);
 	}
 
 	@Test
 	public void retrieve_with_specification() throws Exception {
 		String name = "Nils";
 		repository.save(new Person().withName(name));
-		assertThat(repository.retrieve(new PersonSpecification().withName(name)).getName()).isEqualTo(name);
+		assertThat(repository.retrieve(new PersonSpecification().withName(name)).getUsername()).isEqualTo(name);
 	}
 
 	@Test

@@ -15,7 +15,7 @@ public class HelloWorldController {
 
 	@RequestMapping("/find")
 	public String getHelloWorld(ModelMap map) {
-		map.addAttribute("navn", peopleService.getPerson().getName());
+		map.addAttribute("navn", peopleService.getPerson().getUsername());
 		return "index";
 	}
 

@@ -22,7 +22,7 @@ public class PersonSpecification implements HibernateSpecification<Person> {
 			criteria.add(Restrictions.eq("id", id));
 		}
 		if (name != null) {
-			criteria.add(Restrictions.like("name", name));
+			criteria.add(Restrictions.like("username", name));
 		}
 	}
 

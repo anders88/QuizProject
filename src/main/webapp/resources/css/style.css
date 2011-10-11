@@ -6,6 +6,10 @@ b.red {
 	color: red;
 }
 
+.login-error-message {
+	color: red;
+}
+
 .fieldWithErrors {
 	padding: 2px;
 	background-color: red;

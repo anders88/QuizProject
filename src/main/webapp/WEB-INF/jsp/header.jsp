@@ -1,14 +1,13 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
 <title><spring:message code="application.heading" /></title>
-<link href="/resources/css/style.css" media="screen" rel="Stylesheet"
-	type="text/css" />
+<link href="/resources/css/style.css" media="screen" rel="Stylesheet" type="text/css" />
+<script src="/resources/js/jquery-1.4.4.min.js"></script>
 </head>
 <body>
 	<div id="container">
@@ -20,7 +19,7 @@
 				<spring:message code="application.slogan" />
 			</p>
 			<p class="userinfo">
-				<a href="login"><spring:message code="application.login" /></a>
+				<script type="text/javascript">$('p.userinfo').load('/resources/jsp/credentials.jsp')</script>
 			</p>
 		</div>
 		<div id="navigation">

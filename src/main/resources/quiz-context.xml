@@ -23,4 +23,8 @@
 		class="org.springframework.orm.hibernate3.HibernateTransactionManager"
 		p:sessionFactory-ref="sessionFactory" />
 
+	<bean id="repository"
+		class="no.kamm.quiz.integration.HibernateRepository">
+		<constructor-arg ref="sessionFactory" />
+	</bean>
 </beans>

@@ -1,6 +1,9 @@
 package no.kamm.quiz.people;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,9 +11,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.GrantedAuthorityImpl;
+import org.springframework.security.core.userdetails.UserDetails;
+
 @Entity
 @Table(name = "people")
-public class Person implements Serializable {
+public class Person implements UserDetails, Serializable {
 
 	private static final long serialVersionUID = -5527566248002296042L;
 
@@ -20,10 +28,10 @@ public class Person implements Serializable {
 	private Integer id;
 
 	@Column(name = "name")
-	private String name;
+	private String username;
 
 	public Person withName(String name) {
-		this.name = name;
+		this.username = name;
 		return this;
 	}
 
@@ -34,20 +42,27 @@ public class Person implements Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
-	public String getName() {
-		return name;
+	
+	@Override
+	public String getUsername() {
+		return username;
+	}
+	
+	@Override
+	public String getPassword() {
+		ShaPasswordEncoder end = new ShaPasswordEncoder(256);
+		return end.encodePassword(username, null);
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.username = name;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
 	}
 
@@ -60,11 +75,38 @@ public class Person implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Person other = (Person) obj;
-		if (name == null) {
-			if (other.name != null)
+		if (username == null) {
+			if (other.username != null)
 				return false;
-		} else if (!name.equals(other.name))
+		} else if (!username.equals(other.username))
 			return false;
+		return true;
+	}
+
+	@Override
+	public Collection<GrantedAuthority> getAuthorities() {
+		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+		authorities.add(new GrantedAuthorityImpl("ROLE_ADMIN"));
+		return authorities;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
 		return true;
 	}
 
